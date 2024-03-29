@@ -1,10 +1,12 @@
-import { ArrowRight } from "@mui/icons-material";
-import { Box, Container, Grid } from "@mui/material";
-import Button from "@mui/material/Button";
+import * as React from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import { Box, Container, Grid } from "@mui/material";
+import { ArrowRight } from "@mui/icons-material";
 import Image from "next/image";
 import Link from "next/link";
 export type flashCardType = {
@@ -24,17 +26,12 @@ export default function FlashSaleCard({ data }: { data: flashCardType[] }) {
   return (
     <Container sx={{ my: 5 }}>
       <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-        <Typography variant="h6" sx={{ fontWeight: "bold" }}>
-          Flash Sale
+        <Typography variant="h6" sx={{ fontWeight: "bold" }} gutterBottom>
+          Flash Sale Product
         </Typography>
-        <Link href="flash-sale">
-          <Button variant="contained" endIcon={<ArrowRight />}>
-            View All
-          </Button>
-        </Link>
       </Box>
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-        {data?.slice(0, 6).map((flashCardData) => {
+        {data?.map((flashCardData) => {
           return (
             <Grid key={flashCardData._id} item xs={12} sm={6} md={4}>
               <Card sx={{ maxWidth: 345, padding: "10px", mx: "auto" }}>
