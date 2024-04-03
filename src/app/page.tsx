@@ -1,6 +1,7 @@
 import Banner from "@/components/home/Banner";
 import FlashSaleCard from "@/components/home/FlashSaleCard";
 import PopularProducts from "@/components/home/PopularProducts";
+import TopCategories from "@/components/home/TopCategories";
 
 async function fetchFlashCardData() {
   const resData = await fetch(
@@ -34,6 +35,7 @@ export default async function Home() {
     <>
       <Banner />
       <FlashSaleCard data={data?.data} />
+      <TopCategories />
       <PopularProducts products={popularProduct.data} />
     </>
   );
