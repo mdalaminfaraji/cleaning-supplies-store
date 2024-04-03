@@ -23,6 +23,7 @@ export type flashCardType = {
 };
 
 export default function FlashSaleCard({ data }: { data: flashCardType[] }) {
+  console.log(data);
   return (
     <Container sx={{ my: 5 }}>
       <Box sx={{ display: "flex", justifyContent: "space-between" }}>
