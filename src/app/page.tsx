@@ -1,6 +1,7 @@
 import Banner from "@/components/home/Banner";
 import FlashSaleCard from "@/components/home/FlashSaleCard";
 import PopularProducts from "@/components/home/PopularProducts";
+import SpencerComponent from "@/components/home/Sponsers";
 import TopCategories from "@/components/home/TopCategories";
 
 async function fetchFlashCardData() {
@@ -37,6 +38,7 @@ export default async function Home() {
       <FlashSaleCard data={data?.data} />
       <TopCategories />
       <PopularProducts products={popularProduct.data} />
+      <SpencerComponent />
     </>
   );
 }

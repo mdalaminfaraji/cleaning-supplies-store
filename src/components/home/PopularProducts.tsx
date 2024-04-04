@@ -20,10 +20,12 @@ export default function PopularProducts({
 }) {
   return (
     <Container>
-      <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+      <Box sx={{ display: "flex", justifyContent: "space-between", mt: 5 }}>
         <Box sx={{ maxWidth: "500px" }}>
-          <Typography>Most Popular Products</Typography>
-          <Typography variant="caption">
+          <Typography variant="h5" gutterBottom>
+            Most Popular Products
+          </Typography>
+          <Typography variant="body2" sx={{ mb: 3 }}>
             These categories offer a diverse selection of cleaning supplies to
             cater to various cleaning needs for both residential and commercial
             purposes
