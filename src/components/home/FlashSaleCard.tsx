@@ -54,7 +54,10 @@ export default function FlashSaleCard({ data }: { data: flashCardType[] }) {
                 </CardContent>
                 <CardActions>
                   <Button size="small">Share</Button>
-                  <Button size="small">Learn More</Button>
+                  <Link href={`/product-details?id=${flashCardData._id}`}>
+                    {" "}
+                    <Button size="small">Learn More</Button>
+                  </Link>
                 </CardActions>
               </Card>
             </Grid>
