@@ -1,4 +1,4 @@
-import { Apartment, Inbox, Mail } from "@mui/icons-material";
+import { Apartment, Home, Inbox, Mail } from "@mui/icons-material";
 import {
   Divider,
   List,
@@ -15,6 +15,12 @@ const route = [
     name: "All Products",
     icon: <Apartment />,
     link: "dashboard/all-products",
+  },
+  {
+    key: 2,
+    name: "Home",
+    icon: <Home />,
+    link: "/",
   },
 ];
 

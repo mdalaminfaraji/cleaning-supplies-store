@@ -41,7 +41,27 @@ export default function PopularProducts({
         {products?.slice(0, 6).map((flashCardData) => {
           return (
             <Grid key={flashCardData._id} item xs={12} sm={6} md={4}>
-              <Card sx={{ maxWidth: 345, padding: "10px", mx: "auto" }}>
+              <Card
+                sx={{
+                  maxWidth: 345,
+                  padding: "10px",
+                  mx: "auto",
+                  position: "relative",
+                }}
+              >
+                <Typography
+                  sx={{
+                    position: "absolute",
+                    backgroundColor: "grey",
+                    px: 1,
+                    borderRadius: "20px",
+                    color: "white",
+                    fontSize: "12px",
+                    margin: "5px",
+                  }}
+                >
+                  -{flashCardData.discount} %
+                </Typography>
                 <Image
                   height={250}
                   width={345}
@@ -56,9 +76,13 @@ export default function PopularProducts({
                     {flashCardData?.description.slice(0, 150)}...
                   </Typography>
                 </CardContent>
-                <CardActions>
-                  <Button size="small">Share</Button>
-                  <Button size="small">Learn More</Button>
+                <CardActions
+                  sx={{ textAlign: "center", width: "150px", mx: "auto" }}
+                >
+                  <Link href={`/product-details?id=${flashCardData._id}`}>
+                    {" "}
+                    <Button size="small">view Details</Button>
+                  </Link>
                 </CardActions>
               </Card>
             </Grid>

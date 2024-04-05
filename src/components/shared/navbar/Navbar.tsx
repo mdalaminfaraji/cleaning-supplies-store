@@ -14,9 +14,18 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
-
-const pages = ["Products", "Pricing", "Blog"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+import logo from "../../../../public/images/logo.jpeg";
+import Image from "next/image";
+import { log } from "console";
+import Link from "next/link";
+const pages = [
+  { key: 1, name: "Home", link: "/" },
+  { key: 2, name: "Products", link: "/all-products" },
+  { key: 2, name: "FlashSale", link: "/flash-sale" },
+];
+const settings = [
+  { key: 1, name: "Dashboard", link: "/dashboard/all-products" },
+];
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -45,12 +54,11 @@ function Navbar() {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href="/"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -59,9 +67,10 @@ function Navbar() {
               letterSpacing: ".3rem",
               color: "inherit",
               textDecoration: "none",
+              borderRadius: "100px",
             }}
           >
-            LOGO
+            <Image src={logo} alt="logo" width={60} height={50} />
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -93,9 +102,11 @@ function Navbar() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+              {pages.map(({ key, name, link }) => (
+                <MenuItem key={key} onClick={handleCloseNavMenu}>
+                  <Link href={link} style={{ textDecoration: "none" }}>
+                    <Typography textAlign="center">{name}</Typography>
+                  </Link>
                 </MenuItem>
               ))}
             </Menu>
@@ -105,7 +116,7 @@ function Navbar() {
             variant="h5"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href="/"
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
@@ -117,16 +128,28 @@ function Navbar() {
               textDecoration: "none",
             }}
           >
-            LOGO
+            <Image
+              src={logo}
+              alt="logo"
+              width={60}
+              height={50}
+              style={{ borderRadius: "100px" }}
+            />
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
+            {pages.map(({ key, name, link }) => (
               <Button
-                key={page}
+                key={key}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
+                sx={{ my: 2, display: "block" }}
               >
-                {page}
+                <Link
+                  style={{ textDecoration: "none", color: "black" }}
+                  href={link}
+                >
+                  {" "}
+                  <Typography sx={{ color: "white" }}> {name}</Typography>
+                </Link>
               </Button>
             ))}
           </Box>
@@ -153,9 +176,11 @@ function Navbar() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+              {settings.map(({ key, name, link }) => (
+                <MenuItem key={key} onClick={handleCloseUserMenu}>
+                  <Link href={link} style={{ textDecoration: "none" }}>
+                    <Typography textAlign="center">{name}</Typography>
+                  </Link>
                 </MenuItem>
               ))}
             </Menu>

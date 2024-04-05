@@ -2,6 +2,18 @@ import { Box, Container, Grid, Typography } from "@mui/material";
 import Image from "next/image";
 import React from "react";
 import StarIcon from "@mui/icons-material/Star";
+import { flashCardType } from "@/components/home/FlashSaleCard";
+
+export async function generateStaticParams() {
+  const resProducts = await fetch(
+    `http://localhost:5000/api/v1/get-all-products`
+  );
+  const { data } = await resProducts.json();
+
+  return data
+    ?.slice(0, 9)
+    .map((product: flashCardType) => ({ id: product._id }));
+}
 async function getProductDetail(id: string) {
   const resData = await fetch(
     `http://localhost:5000/api/v1/get-flash-sale-products/${id}`
@@ -26,7 +38,7 @@ export default async function productDetailsPage({ searchParams }: any) {
               src={data.image}
               alt={data.name}
               layout="fill" // Fill the container
-              objectFit="cover" // Cover container while maintaining aspect ratio
+              // objectFit="cover" // Cover container while maintaining aspect ratio
               style={{ borderRadius: "10px" }}
             />
           </div>

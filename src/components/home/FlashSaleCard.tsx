@@ -24,20 +24,38 @@ export default function FlashSaleCard({ data }: { data: flashCardType[] }) {
   return (
     <Container sx={{ my: 5 }}>
       <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-        <Typography variant="h6" sx={{ fontWeight: "bold" }}>
-          Flash Sale
-        </Typography>
+        <Typography variant="h5">Flash Sale</Typography>
         <Link href="flash-sale">
           <Button variant="contained" endIcon={<ArrowRight />}>
             View All
           </Button>
         </Link>
       </Box>
-      <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+      <Grid container rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         {data?.slice(0, 6).map((flashCardData) => {
           return (
             <Grid key={flashCardData._id} item xs={12} sm={6} md={4}>
-              <Card sx={{ maxWidth: 345, padding: "10px", mx: "auto" }}>
+              <Card
+                sx={{
+                  maxWidth: 345,
+                  padding: "10px",
+                  mx: "auto",
+                  position: "relative",
+                }}
+              >
+                <Typography
+                  sx={{
+                    position: "absolute",
+                    backgroundColor: "grey",
+                    px: 1,
+                    borderRadius: "20px",
+                    color: "white",
+                    fontSize: "12px",
+                    margin: "5px",
+                  }}
+                >
+                  -{flashCardData.discount} %
+                </Typography>
                 <Image
                   height={250}
                   width={345}
@@ -52,11 +70,12 @@ export default function FlashSaleCard({ data }: { data: flashCardType[] }) {
                     {flashCardData?.description.slice(0, 150)}...
                   </Typography>
                 </CardContent>
-                <CardActions>
-                  <Button size="small">Share</Button>
+                <CardActions
+                  sx={{ textAlign: "center", width: "150px", mx: "auto" }}
+                >
                   <Link href={`/product-details?id=${flashCardData._id}`}>
                     {" "}
-                    <Button size="small">Learn More</Button>
+                    <Button size="small">view Details</Button>
                   </Link>
                 </CardActions>
               </Card>

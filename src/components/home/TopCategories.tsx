@@ -42,8 +42,8 @@ const itemData = [
 export default function TopCategories() {
   return (
     <Container>
-      <Box sx={{ my: 2 }}>
-        <Typography variant="h5" sx={{ textAlign: "center" }}>
+      <Box sx={{ my: 5 }}>
+        <Typography variant="h5" sx={{ textAlign: "center", my: 2 }}>
           Top Categories
         </Typography>
         <Typography variant="body2" sx={{ textAlign: "center" }}>
@@ -72,7 +72,11 @@ export default function TopCategories() {
                   height={300}
                   style={{ padding: "5px" }}
                 />
-                <Typography sx={{ padding: "5px" }}>{item.author}</Typography>
+                <Typography
+                  sx={{ padding: "5px", color: "black", textAlign: "center" }}
+                >
+                  {item.author}
+                </Typography>
               </Link>
             </Grid>
           ))}
