@@ -11,7 +11,7 @@ import Link from "next/link";
 
 async function getAllProducts(query) {
   const resProducts = await fetch(
-    `http://localhost:5000/api/v1/all-product?category=${query}`,
+    `https://cleaning-supplies-store-backend.vercel.app/api/v1/all-product?category=${query}`,
     { cache: "no-store" }
   );
 

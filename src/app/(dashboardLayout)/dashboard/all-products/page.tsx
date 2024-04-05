@@ -10,7 +10,7 @@ import {
 import React from "react";
 async function getAllProducts() {
   const resProducts = await fetch(
-    `http://localhost:5000/api/v1/get-all-products`,
+    `https://cleaning-supplies-store-backend.vercel.app/api/v1/get-all-products`,
     { cache: "no-store" }
   );
 

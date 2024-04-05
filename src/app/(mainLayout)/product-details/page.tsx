@@ -6,7 +6,7 @@ import { flashCardType } from "@/components/home/FlashSaleCard";
 
 export async function generateStaticParams() {
   const resProducts = await fetch(
-    `http://localhost:5000/api/v1/get-all-products`
+    `https://cleaning-supplies-store-backend.vercel.app/api/v1/get-all-products`
   );
   const { data } = await resProducts.json();
 
@@ -16,7 +16,7 @@ export async function generateStaticParams() {
 }
 async function getProductDetail(id: string) {
   const resData = await fetch(
-    `http://localhost:5000/api/v1/get-flash-sale-products/${id}`
+    `https://cleaning-supplies-store-backend.vercel.app/api/v1/get-flash-sale-products/${id}`
   );
   if (!resData.ok) {
     throw new Error("Failed to fetch data");

@@ -8,7 +8,7 @@ import Navbar from "@/components/shared/navbar/Navbar";
 
 async function fetchFlashCardData() {
   const resData = await fetch(
-    "http://localhost:5000/api/v1/get-flash-sale-products",
+    "https://cleaning-supplies-store-backend.vercel.app/api/v1/get-flash-sale-products",
     { next: { revalidate: 30 } }
   );
   if (!resData.ok) {
@@ -19,7 +19,7 @@ async function fetchFlashCardData() {
 }
 async function fetchPopularProduct() {
   const resPopularProducts = await fetch(
-    "http://localhost:5000/api/v1/get-trending-products",
+    "https://cleaning-supplies-store-backend.vercel.app/api/v1/get-trending-products",
     { next: { revalidate: 30 } }
   );
   if (!resPopularProducts.ok) {
