@@ -1,8 +1,10 @@
 import Banner from "@/components/home/Banner";
 import FlashSaleCard from "@/components/home/FlashSaleCard";
+import Footer from "@/components/home/Footer";
 import PopularProducts from "@/components/home/PopularProducts";
 import SpencerComponent from "@/components/home/Sponsers";
 import TopCategories from "@/components/home/TopCategories";
+import Navbar from "@/components/shared/navbar/Navbar";
 
 async function fetchFlashCardData() {
   const resData = await fetch(
@@ -34,11 +36,13 @@ export default async function Home() {
   ]);
   return (
     <>
+      <Navbar />
       <Banner />
       <FlashSaleCard data={data?.data} />
       <TopCategories />
       <PopularProducts products={popularProduct.data} />
       <SpencerComponent />
+      <Footer />
     </>
   );
 }
